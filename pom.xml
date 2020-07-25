@@ -19,6 +19,7 @@
         <jstl.version>1.2.1</jstl.version>
         <tld.version>1.1.2</tld.version>
         <servlets.version>4.0.1</servlets.version>
+        <jetty-maven-plugin.version>9.4.30.v20200611</jetty-maven-plugin.version>
 
     </properties>
 
@@ -78,7 +79,6 @@
         </dependency>
 
 
-
         <!-- Thymeleaf Dependency -->
         <!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf -->
         <dependency>
@@ -126,9 +126,23 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.2.1</version>
                 <configuration>
-                    <warSourceDirectory>WebContent</warSourceDirectory>
+                    <!--                    <warSourceDirectory>WebContent</warSourceDirectory>-->
                 </configuration>
             </plugin>
+
+            <!--            Running Embedded Jetty:-->
+            <!--            <plugin>-->
+            <!--                <groupId>org.eclipse.jetty</groupId>-->
+            <!--                <artifactId>jetty-maven-plugin</artifactId>-->
+            <!--                <version>${jetty-maven-plugin.version}</version>-->
+            <!--                <configuration>-->
+            <!--                    <scanIntervalSeconds>10</scanIntervalSeconds>-->
+            <!--                    <webApp>-->
+            <!--                        <contextPath>/</contextPath>-->
+            <!--                    </webApp>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
         </plugins>
     </build>
 
