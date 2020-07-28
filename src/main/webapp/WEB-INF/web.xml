@@ -8,6 +8,11 @@
 
     <absolute-ordering/>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/spring-mvc-demo-servlet.xml</param-value>
+    </context-param>
+
     <!-- Spring MVC Configs -->
 
     <!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
@@ -26,5 +31,9 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
 </web-app>
