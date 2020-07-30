@@ -15,6 +15,9 @@
     <context:component-scan base-package="main.java.com.luizconrado.springmvc"/>
 
     <!-- Step 4: Add support for conversion, formatting and validation support -->
+    <!--    Enable MVC Configuration-->
+    <!--    In Java configuration, you can use the @EnableWebMvc annotation to enable MVC configuration-->
+    <!--    In XML configuration, you can use the <mvc:annotation-driven> element to enable MVC configuration-->
     <mvc:annotation-driven/>
 
     <!-- Step 5: Define Spring MVC view resolver -->
