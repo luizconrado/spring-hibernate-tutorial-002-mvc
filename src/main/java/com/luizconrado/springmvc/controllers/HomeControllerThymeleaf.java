@@ -1,21 +1,20 @@
 package main.java.com.luizconrado.springmvc.controllers;
 
-import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class FirstController {
+public class HomeControllerThymeleaf {
 
-//    private static final Logger logger = Logger.getLogger(FirstController.class);
+//    private static final Logger logger = Logger.getLogger(HomeControllerThymeleaf.class);
 
 
-    @GetMapping("/")
+    @GetMapping("/thymeleaf")
     public String index(Model model) {
 
-        System.out.println("I reached the @GetMapping(\"/\")");
+        System.out.println("I reached the Thymeleaf @GetMapping(\"/\")");
         model.addAttribute("message", "Hello Spring MVC 5!");
-        return "index";
+        return "templates/index";
     }
 }

@@ -17,7 +17,7 @@
 
     <!-- Step 1: Configure Spring MVC Dispatcher Servlet -->
     <servlet>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-name>myDispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -28,8 +28,17 @@
 
     <!-- Step 2: Set up URL mapping for Spring MVC Dispatcher Servlet -->
     <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <servlet-name>myDispatcher</servlet-name>
+
+        <!--        https://www.baeldung.com/spring-mvc-404-error-->
+
+        <!--        The reasoning behind the problem is that if we map DispatcherServlet to /*,
+        then we are telling the application that every single request arriving at our application is
+        to be served by DispatcherServlet. However, that's not a correct approach because DispatcherServlet
+        is not capable of doing this. Instead, Spring MVC expects an implementation of ViewResolver
+        to serve views such as JSP files.-->
+        <url-pattern>/</url-pattern>
+
     </servlet-mapping>
 
     <listener>

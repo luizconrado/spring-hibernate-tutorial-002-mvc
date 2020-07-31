@@ -54,9 +54,12 @@
     <!--    This is an newer version:-->
     <!--    https://stackoverflow.com/questions/39142527/thymeleaf-spring-configuration-->
 
+
+    <!--    First View Resolver for HTML5 & Thymeleaf-->
+
     <bean id="templateResolver"
           class="org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver">
-        <property name="prefix" value="/WEB-INF/views/"/>
+        <property name="prefix" value="/WEB-INF/"/>
         <property name="suffix" value=".html"/>
         <property name="templateMode" value="HTML"/>
         <property name="cacheable" value="true"/>
@@ -82,11 +85,27 @@
     <bean id="thymeleafViewResolver"
           class="org.thymeleaf.spring5.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="templateEngine"/>
-        <property name="order" value="1"/>
+        <property name="characterEncoding" value="UTF-8"/>
+        <property name="order" value="0"/>
+
+        <!--        Also note that these view name patterns are checked before applying any prefixes or suffixes to the
+        view name, so they should not include these. Usually therefore,
+        you would specify orders/* instead of /WEB-INF/templates/orders/*.html.-->
+        <!--        https://www.thymeleaf.org/apidocs/thymeleaf-spring4/2.0.20/org/thymeleaf/spring4/view/ThymeleafViewResolver.html-->
+
+        <property name="viewNames" value="templates/*"/>
         <!--        <property name="viewNames" value="*.html,*.xhtml" />-->
-        <!--        <property name="characterEncoding" value="UTF-8"/>-->
         <!--        <property name="forceContentType" value="true"/>-->
-        <!--        <property name="contentType" value="text/html; charset=UTF-8"/>-->
+        <property name="contentType" value="text/html; charset=UTF-8"/>
+    </bean>
+
+
+    <bean
+            class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/"/>
+        <property name="suffix" value=".jsp"/>
+        <property name="viewNames" value="views/*"/>
+        <property name="order" value="1000"/>
     </bean>
 
 
