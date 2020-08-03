@@ -19,7 +19,6 @@
         <li><a href="/">JSP - Main Menu</a></li>
         <li><a href="/thymeleaf">Thymeleaf - Main Menu</a></li>
         <li></li>
-        <li></li>
     </ul>
 </div>
 
