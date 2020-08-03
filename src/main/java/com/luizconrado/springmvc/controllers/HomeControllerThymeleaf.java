@@ -16,7 +16,7 @@ public class HomeControllerThymeleaf {
     @GetMapping(value = "/test")
     public String index(Model model) {
 
-        System.out.println("I reached the Thymeleaf @GetMapping(\"/\") - Root");
+        System.out.println("I reached the Thymeleaf @GetMapping(\"/\"test)");
         model.addAttribute("message", "Hello Spring MVC 5!");
         return "templates/index";
     }
@@ -26,7 +26,6 @@ public class HomeControllerThymeleaf {
     public String showPage(Model model) {
 
         System.out.println("I reached the Thymeleaf @GetMapping(\"/\") - Root");
-        model.addAttribute("message", "Hello Spring MVC 5!");
         return "templates/main-menu";
     }
 
