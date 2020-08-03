@@ -20,6 +20,9 @@
     <!--    In XML configuration, you can use the <mvc:annotation-driven> element to enable MVC configuration-->
     <mvc:annotation-driven/>
 
+
+    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
+
     <!-- Step 5: Define Spring MVC view resolver -->
 
 
@@ -107,6 +110,7 @@
         <property name="viewNames" value="views/*"/>
         <property name="order" value="1000"/>
     </bean>
+
 
 
     <!--    <context:property-placeholder location="/WEB-INF/views/home.properties"/>-->

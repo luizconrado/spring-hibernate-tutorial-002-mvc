@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+<!--    <meta charset="UTF-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" href="../../resources/css/999_css_normalize.css" th:href="@{/resources/css/999_css_normalize.css}" />
     <title>Main Menu</title>
 
 </head>
 <body>
 
-<h2>Thymeleaf + Spring MVC - Main Menu</h2>
+<div>
+    <h2>Thymeleaf + Spring MVC - Main Menu</h2>
+</div>
+
+<div>
+    <ul>
+        <li>
+            <a th:href="@{/thymeleaf}">Thymeleaf - Main Menu</a>
+        </li>
+        <li>
+            <a th:href="@{/}">JSP - Main Menu</a>
+        </li>
+        <li>
+
+        </li>
+    </ul>
+</div>
+
+
 
 </body>
 </html>
