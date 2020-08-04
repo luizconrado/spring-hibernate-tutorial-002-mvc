@@ -21,9 +21,10 @@
     <mvc:annotation-driven/>
 
 
+    <!-- Step 5: Define Spring MVC Static Resources Folder -->
     <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
 
-    <!-- Step 5: Define Spring MVC view resolver -->
+    <!-- Step 6: Define Spring MVC view resolver -->
 
 
     <!-- For JSP, here is the configuration: -->
