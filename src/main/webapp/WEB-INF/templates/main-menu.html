@@ -1,10 +1,31 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<!--    <meta charset="UTF-8">-->
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" media="all" href="../../resources/css/999_css_normalize.css" th:href="@{/resources/css/999_css_normalize.css}" />
+    <!--    <meta charset="UTF-8">-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../../resources/css/999_css_normalize.css"
+          th:href="@{/resources/css/999_css_normalize.css}"/>
     <title>Main Menu</title>
+
+
+    <!--    https://www.w3schools.com/howto/howto_css_two_columns.asp-->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        /* Create two equal columns that sits next to each other */
+        .column {
+            flex: 50%;
+            padding: 10px;
+            height: 300px; /* Should be removed. Only for demonstration */
+        }
+    </style>
+
 
 </head>
 <body>
@@ -13,14 +34,23 @@
     <h2>Thymeleaf + Spring MVC - Main Menu</h2>
 </div>
 
-<div>
-    <ul>
-        <li><a th:href="@{/thymeleaf}">Thymeleaf - Main Menu</a></li>
-        <li><a th:href="@{/}">JSP - Main Menu</a></li>
-        <li></li>
-    </ul>
-</div>
 
+<div class="row">
+    <div class="column" style="background-color:#aaa;">
+        <h2>Thymeleaf</h2>
+        <ul>
+            <li><a th:href="@{/thymeleaf}">Thymeleaf - Main Menu</a></li>
+            <li><a th:href="@{/thymeleaf/hello/showForm}">Thymeleaf - Show Form</a></li>
+        </ul>
+    </div>
+    <div class="column" style="background-color:#bbb;">
+        <h2>Java Server Pages (JSP)</h2>
+        <ul>
+            <li><a th:href="@{/}">JSP - Main Menu</a></li>
+            <li><a th:href="@{/hello/showForm}">JSP - Show Form</a></li>
+        </ul>
+    </div>
+</div>
 
 
 </body>

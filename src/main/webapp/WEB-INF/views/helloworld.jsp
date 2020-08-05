@@ -12,7 +12,9 @@
 </head>
 <body>
 
-<h2>JSP processForm -> HelloWorld.html</h2>
+<h2>JSP - Confirmation Page</h2>
+
+<p>${param.studentName}</p>
 
 </body>
 </html>

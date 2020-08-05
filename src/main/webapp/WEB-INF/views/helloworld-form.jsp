@@ -8,11 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>JSP showForm - HelloWorld Form</title>
+    <title>Hello World - Input Form</title>
 </head>
 <body>
 
-<h2>JSP showForm -> HelloWorld-form.html</h2>
+<h2>Hello World - Input Form</h2>
+
+<form action="${pageContext.request.contextPath}/hello/processForm" method="get">
+
+    <input type="text" name="studentName" placeholder="What's your name?"><br>
+    <input type="submit" value="Submit!">
+
+</form>
+
 
 </body>
 </html>
