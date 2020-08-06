@@ -22,6 +22,11 @@
             height: 300px; /* Should be removed. Only for demonstration */
         }
 
+        .row {
+            width: 90%;
+            margin: 0 auto;
+        }
+
         /* Clear floats after the columns */
         .row:after {
             content: "";
