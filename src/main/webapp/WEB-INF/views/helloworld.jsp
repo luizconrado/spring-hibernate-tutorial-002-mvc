@@ -14,7 +14,7 @@
 
 <h2>JSP - Confirmation Page</h2>
 
-<p>${param.studentName}</p>
+<p>Student Name: ${param.studentName}</p>
 
 </body>
 </html>
