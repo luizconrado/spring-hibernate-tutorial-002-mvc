@@ -9,6 +9,33 @@
 <html>
 <head>
     <title>Hello World - Input Form</title>
+
+
+    <style>
+        form.form-example {
+            display: table;
+        }
+
+        div.form-example {
+            display: table-row;
+        }
+
+        label,
+        input {
+            display: table-cell;
+            margin-bottom: 10px;
+        }
+
+        label {
+            padding-right: 10px;
+        }
+
+        .button {
+            margin-top: 10px;
+            margin-right: 10px;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -16,8 +43,28 @@
 
 <form action="${pageContext.request.contextPath}/hello/processForm" method="get">
 
-    <input type="text" name="studentName" placeholder="What's your name?"><br>
-    <input type="submit" value="Submit!">
+    <div class="form-example">
+        <label for="name">Enter your name: </label>
+        <input id="name" name="studentName" required type="text">
+    </div>
+
+    <div class="form-example">
+        <label for="email">Enter your email: </label>
+        <input id="email" name="studentEmail" required type="email">
+    </div>
+
+    <div class="form-example">
+        <label for="message">Your Message:</label>
+        <textarea cols="39" id="message" name="message" placeholder="Enter your message here" required
+                  rows="8"></textarea>
+    </div>
+
+    <input id="prodId" name="prodId" type="hidden" value="xm234jq">
+
+    <div class="form-example" dir="ltr">
+        <input class="button" type="submit" value="Subscribe!">
+        <input class="button" type="reset" value="Reset">
+    </div>
 
 </form>
 
