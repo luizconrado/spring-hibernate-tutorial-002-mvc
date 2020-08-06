@@ -70,6 +70,20 @@
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
 
+<!--    You should be using SpringResourceTemplateResolver for web projects (using SpringMvc controllers), -->
+<!--    and ClassLoaderTemplateResolver for command line projects, or when you need to generate html for -->
+<!--    non-web applications (such as sending html email or something like that).-->
+
+<!--    <bean-->
+<!--            class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver"-->
+<!--            id="classLoaderTemplateResolver">-->
+<!--        <property name="prefix" value="/WEB-INF/"/>-->
+<!--        <property name="suffix" value=".html"/>-->
+<!--        <property name="cacheable" value="true"/>-->
+<!--        <property name="templateMode" value="HTML"/>-->
+<!--        <property name="characterEncoding" value="UTF-8"/>-->
+<!--    </bean>-->
+
     <bean id="resourceBundleMessageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="home"/>
@@ -111,7 +125,6 @@
         <property name="viewNames" value="views/*"/>
         <property name="order" value="1000"/>
     </bean>
-
 
 
     <!--    <context:property-placeholder location="/WEB-INF/views/home.properties"/>-->
