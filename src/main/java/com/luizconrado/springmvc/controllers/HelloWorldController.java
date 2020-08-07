@@ -20,4 +20,17 @@ public class HelloWorldController {
         return "views/helloworld";
     }
 
+
+    @RequestMapping(path = "showFormV2", method = {RequestMethod.GET, RequestMethod.POST})
+    public String showFormV2() {
+        System.out.println("I reached the JSP @RequestMapping - (/hello/showFormV2)");
+        return "views/helloworld-form-v2";
+    }
+
+    @RequestMapping(path = "processFormV2", method = {RequestMethod.GET, RequestMethod.POST})
+    public String processFormV2() {
+        System.out.println("I reached the JSP @RequestMapping - (/hello/processFormV2)");
+        return "views/helloworld-v2";
+    }
+
 }
