@@ -33,9 +33,23 @@ public class HelloWorldControllerThymeleaf {
     }
 
     @RequestMapping(path = "processFormV2", method = {RequestMethod.GET, RequestMethod.POST})
-    public String processFormV2(HttpServletRequest httpServletRequest, Model model) {
+    public String processFormV2(HttpServletRequest request, Model model) {
         System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processFormV2)");
-        model.addAttribute("httpServletRequest", httpServletRequest.getMethod());
+
+//        model.addAttribute("httpServletRequest", request.getMethod());
+
+        // Read the Request Parameter from the HTML Form - Using HttpServletRequest:
+        String studentName = request.getParameter("studentName");
+
+        // Transforming the data to all caps / into Uppercase:
+        studentName = studentName.toUpperCase();
+
+        // Creating the message:
+        studentName = "Yo! " + studentName;
+
+        // Adding message to the model:
+        model.addAttribute("message", studentName);
+
         return "templates/helloworld-v2";
     }
 

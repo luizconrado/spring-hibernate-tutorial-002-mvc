@@ -41,7 +41,7 @@
 
 <h2>Hello World - Input Form</h2>
 
-<form action="${pageContext.request.contextPath}/hello/processForm" method="get">
+<form action="${pageContext.request.contextPath}/hello/processFormV2" method="get">
 
     <div class="form-example">
         <label for="name">Enter your name: </label>

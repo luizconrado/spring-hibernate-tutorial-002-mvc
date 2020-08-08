@@ -51,6 +51,7 @@
         <ul>
             <li><a href="${pageContext.request.contextPath}/">JSP - Main Menu</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showForm">JSP - Show Form</a></li>
+            <li><a href="${pageContext.request.contextPath}/hello/showFormV2">JSP - Show Form V2</a></li>
         </ul>
     </div>
     <div class="column" style="background-color:#bbb;">
@@ -58,6 +59,7 @@
         <ul>
             <li><a href="${pageContext.request.contextPath}/thymeleaf">Thymeleaf - Main Menu</a></li>
             <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showForm">Thymeleaf - Show Form</a></li>
+            <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showFormV2">Thymeleaf - Show Form V2</a></li>
         </ul>
     </div>
 </div>

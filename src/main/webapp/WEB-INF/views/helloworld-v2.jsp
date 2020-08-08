@@ -14,7 +14,12 @@
 
 <h2>JSP - Confirmation Page</h2>
 
+<p>Using URL Parameter directly from Thymeleaf:</p>
 <p>Student Name: ${param.studentName}</p>
+<br>
+<p>Using the HttpServletRequest + Spring MVC Model:</p>
+<p>Student Name: ${message}</p>
+<br>
 
 </body>
 </html>

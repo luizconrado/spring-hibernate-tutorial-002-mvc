@@ -8,8 +8,13 @@
 
 <h2>Thymeleaf - Confirmation Page</h2>
 
+
+<p>Using URL Parameter directly from Thymeleaf:</p>
 <p th:text="'Student Name: ' + ${param.studentName}">Student Name: placeholder</p>
-<p th:text="'httpServletRequest Method: ' + ${httpServletRequest}">httpServletRequest Method: placeholder</p>
+<br>
+<p>Using the HttpServletRequest + Spring MVC Model:</p>
+<p th:text="'Student Name: ' + ${message}">Student Name: placeholder</p>
+<br>
 
 </body>
 </html>
