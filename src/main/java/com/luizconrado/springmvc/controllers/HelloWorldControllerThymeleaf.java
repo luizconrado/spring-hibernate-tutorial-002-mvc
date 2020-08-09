@@ -20,7 +20,7 @@ public class HelloWorldControllerThymeleaf {
         return "templates/helloworld-form";
     }
 
-    //    Using Thymeleaf to read the URL parameter
+    // Using Thymeleaf to read the URL parameter
     @RequestMapping(path = "processForm", method = {RequestMethod.GET, RequestMethod.POST})
     public String processForm(HttpServletRequest httpServletRequest, Model model) {
         System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processForm)");
@@ -36,7 +36,7 @@ public class HelloWorldControllerThymeleaf {
         return "templates/helloworld-form-v2";
     }
 
-    //    Using HttpServletRequest to get the desired parameter
+    // Using HttpServletRequest to get the desired parameter
     @RequestMapping(path = "processFormV2", method = {RequestMethod.GET, RequestMethod.POST})
     public String processFormV2(HttpServletRequest request, Model model) {
         System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processFormV2)");
@@ -66,7 +66,8 @@ public class HelloWorldControllerThymeleaf {
         return "templates/helloworld-form-v3";
     }
 
-    //    Using @RequestParam to get the desired parameter
+    // Using @RequestParam to get the desired parameter
+    // This is called Annotation Parameter Binding
     @RequestMapping(path = "processFormV3", method = {RequestMethod.GET, RequestMethod.POST})
     public String processFormV3(@RequestParam("studentName") String studentName, Model model) {
         System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processFormV3)");
