@@ -18,7 +18,7 @@
 <p>Student Name: ${param.studentName}</p>
 <br>
 <p>Using the HttpServletRequest + Spring MVC Model:</p>
-<p>Student Name: ${message}</p>
+<p>Message: ${message}</p>
 <br>
 
 </body>

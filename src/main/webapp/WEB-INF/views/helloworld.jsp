@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h2>JSP - Confirmation Page</h2>
+<h2>JSP - Confirmation Page V1</h2>
 
 <p>Student Name: ${param.studentName}</p>
 

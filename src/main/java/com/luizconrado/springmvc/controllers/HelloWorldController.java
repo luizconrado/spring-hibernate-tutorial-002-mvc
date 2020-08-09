@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/hello")
 public class HelloWorldController {
 
+
+    // Handler Method:
     @RequestMapping(path = "showForm", method = {RequestMethod.GET, RequestMethod.POST})
     public String showForm() {
         System.out.println("I reached the JSP @RequestMapping - (/hello/showForm)");
@@ -25,6 +28,7 @@ public class HelloWorldController {
     }
 
 
+    // Handler Method:
     @RequestMapping(path = "showFormV2", method = {RequestMethod.GET, RequestMethod.POST})
     public String showFormV2() {
         System.out.println("I reached the JSP @RequestMapping - (/hello/showFormV2)");
@@ -52,19 +56,21 @@ public class HelloWorldController {
     }
 
 
+    // Handler Method:
     @RequestMapping(path = "showFormV3", method = {RequestMethod.GET, RequestMethod.POST})
     public String showFormV3() {
         System.out.println("I reached the JSP @RequestMapping - (/hello/showFormV3)");
         return "views/helloworld-form-v3";
     }
 
-    //    Using HttpServletRequest to get the desired parameter
+    //    Using @RequestParam to get the desired parameter
     @RequestMapping(path = "processFormV3", method = {RequestMethod.GET, RequestMethod.POST})
-    public String processFormV3(HttpServletRequest request, Model model) {
+    public String processFormV3(@RequestParam("studentName") String studentName, Model model) {
         System.out.println("I reached the JSP @RequestMapping - (/hello/processFormV3)");
 
+        // Not needed, since the studentName is coming from the @RequestParam("studentName") String studentName.
         // Read the Request Parameter from the HTML Form - Using HttpServletRequest:
-        String studentName = request.getParameter("studentName");
+        // String studentName = request.getParameter("studentName");
 
         // Transforming the data to all caps / into Uppercase:
         studentName = studentName.toUpperCase();
@@ -73,7 +79,7 @@ public class HelloWorldController {
         studentName = "Yo! " + studentName;
 
         // Adding message to the model:
-        model.addAttribute("message", studentName);
+        model.addAttribute("messageFromV3", studentName);
 
         return "views/helloworld-v3";
     }
