@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<h2>JSP - Confirmation Page V2</h2>
+<h2>JSP - Confirmation Page V3</h2>
 
 <p>Using URL Parameter directly from Thymeleaf:</p>
 <p>Student Name: ${param.studentName}</p>

@@ -51,4 +51,31 @@ public class HelloWorldController {
         return "views/helloworld-v2";
     }
 
+
+    @RequestMapping(path = "showFormV3", method = {RequestMethod.GET, RequestMethod.POST})
+    public String showFormV3() {
+        System.out.println("I reached the JSP @RequestMapping - (/hello/showFormV3)");
+        return "views/helloworld-form-v3";
+    }
+
+    //    Using HttpServletRequest to get the desired parameter
+    @RequestMapping(path = "processFormV3", method = {RequestMethod.GET, RequestMethod.POST})
+    public String processFormV3(HttpServletRequest request, Model model) {
+        System.out.println("I reached the JSP @RequestMapping - (/hello/processFormV3)");
+
+        // Read the Request Parameter from the HTML Form - Using HttpServletRequest:
+        String studentName = request.getParameter("studentName");
+
+        // Transforming the data to all caps / into Uppercase:
+        studentName = studentName.toUpperCase();
+
+        // Creating the message:
+        studentName = "Yo! " + studentName;
+
+        // Adding message to the model:
+        model.addAttribute("message", studentName);
+
+        return "views/helloworld-v3";
+    }
+
 }

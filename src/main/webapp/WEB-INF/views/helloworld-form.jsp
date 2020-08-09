@@ -39,7 +39,7 @@
 </head>
 <body>
 
-<h2>Hello World - Input Form</h2>
+<h2>Hello World - Input Form V1</h2>
 
 <form action="${pageContext.request.contextPath}/hello/processForm" method="get">
 

@@ -2,7 +2,6 @@ package main.java.com.luizconrado.springmvc.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -51,6 +50,34 @@ public class HelloWorldControllerThymeleaf {
         model.addAttribute("message", studentName);
 
         return "templates/helloworld-v2";
+    }
+
+
+    @RequestMapping(path = "showFormV3", method = {RequestMethod.GET, RequestMethod.POST})
+    public String showFormV3(Model model) {
+        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/showFormV3)");
+        return "templates/helloworld-form-v3";
+    }
+
+    @RequestMapping(path = "processFormV3", method = {RequestMethod.GET, RequestMethod.POST})
+    public String processFormV3(HttpServletRequest request, Model model) {
+        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processFormV3)");
+
+//        model.addAttribute("httpServletRequest", request.getMethod());
+
+        // Read the Request Parameter from the HTML Form - Using HttpServletRequest:
+        String studentName = request.getParameter("studentName");
+
+        // Transforming the data to all caps / into Uppercase:
+        studentName = studentName.toUpperCase();
+
+        // Creating the message:
+        studentName = "Yo! " + studentName;
+
+        // Adding message to the model:
+        model.addAttribute("message", studentName);
+
+        return "templates/helloworld-v3";
     }
 
 }
