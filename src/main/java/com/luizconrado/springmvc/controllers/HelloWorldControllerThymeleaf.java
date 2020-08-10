@@ -1,10 +1,12 @@
 package main.java.com.luizconrado.springmvc.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -12,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping(value = "/thymeleaf/hello")
 public class HelloWorldControllerThymeleaf {
 
+    @Autowired
+    WebApplicationContext applicationContext;
 
     // Handler Method:
     @RequestMapping(path = "showForm", method = {RequestMethod.GET, RequestMethod.POST})
@@ -63,6 +67,12 @@ public class HelloWorldControllerThymeleaf {
     @RequestMapping(path = "showFormV3", method = {RequestMethod.GET, RequestMethod.POST})
     public String showFormV3(Model model) {
         System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/showFormV3)");
+
+        System.out.println(applicationContext.getServletContext().getContextPath());
+        System.out.println(applicationContext.getServletContext().getRealPath("/"));
+        System.out.println(applicationContext.getServletContext().getRealPath(""));
+        System.out.println(applicationContext.getServletContext().getServerInfo());
+
         return "templates/helloworld-form-v3";
     }
 
