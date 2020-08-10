@@ -1,0 +1,5 @@
+Here is the correct place to store CSS files.
+This was configured in the spring-mvc-demo-servlet.xml file, using the following line:
+    <!-- Step 5: Define Spring MVC Static Resources Folder -->
+    <mvc:resources mapping="/resources/**" location="/resources/" cache-period="31556926"/>
+
