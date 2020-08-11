@@ -34,18 +34,18 @@
 
     <div class="row">
         <div class="col">
-            <form th:action="@{/thymeleaf/hello/processCompleteForm}" th:object="${student}" action="#" method="post">
+            <form th:action="@{/thymeleaf/hello/processCompleteForm}" th:object="${student}" action="#" method="get" th:method="post">
 
                 <div class="form-group">
                     <label for="fullName">Full Name</label>
-                    <input class="form-control" th:field="*{fullName}" type="text" id="fullName"
+                    <input class="form-control" th:field="*{fullName}" type="text" id="fullName" name="fullName"
                            aria-describedby="fullNameHelp" placeholder="Enter your Full Name">
                     <small id="fullNameHelp" class="form-text text-muted">Please enter your full name</small>
                 </div>
 
                 <div class="form-group">
                     <label for="email1">Email address</label>
-                    <input class="form-control" th:field="*{email}" type="email" id="email1"
+                    <input class="form-control" th:field="*{email}" type="email" id="email1" name="emailAddress"
                            aria-describedby="emailHelp" placeholder="Enter your email">
                     <small id="email1Help" class="form-text text-muted">We'll never share your email with anyone
                         else.</small>
@@ -53,12 +53,13 @@
 
                 <div class="form-group">
                     <label for="password1">Password</label>
-                    <input class="form-control" th:field="*{password}" type="password" id="password1"
+                    <input class="form-control" th:field="*{password}" type="password" id="password1" name="password"
                            placeholder="Password">
                 </div>
 
                 <div class="form-check">
-                    <input class="form-check-input" th:field="*{married}" type="checkbox" id="married">
+                    <input class="form-check-input" th:field="*{married}" th:value="married" name="married"
+                           value="married" type="checkbox" id="married">
                     <label class="form-check-label" for="married">Married?</label>
                 </div>
 
