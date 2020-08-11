@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
+    <!--    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>-->
+
+    <!--    Bootstrap 4:-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--    Bootstrap 4:-->
+
+    <meta name="author" content="Luiz Felipe Conrado">
+    <meta name="description" content="Full Functional Form with Spring and Thymeleaf">
+    <meta name="keywords" content="HTML, CSS, JavaScript, Spring, Thymeleaf">
+
+    <!-- Normalize CSS -->
+    <link rel="stylesheet" type="text/css" media="all" href="../../resources/css/444_css_normalize.css"
+          th:href="@{/resources/css/444_css_normalize.css}"/>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>User Confirmation - Thymeleaf Form</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <br>
+            <br>
+            <p th:text="'Full Name: ' + ${studentCreated.fullName}">fullName</p>
+            <p th:text="'Email: ' + ${studentCreated.email}">email</p>
+            <p th:text="'Password: ' + ${studentCreated.password}">password</p>
+            <p th:text="'Birthday: ' + ${studentCreated.birthday}">birthday</p>
+            <p th:text="'Profession: ' + ${studentCreated.profession}">profession</p>
+            <p th:text="'Married: ' + ${studentCreated.married}">married</p>
+            <p th:text="'Gender: ' + ${studentCreated.gender}">gender</p>
+            <p th:text="'Note: ' + ${studentCreated.note}">note</p>
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

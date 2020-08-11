@@ -14,13 +14,28 @@ public class HelloWorldController {
 
 
     // Handler Method:
+    @RequestMapping(path = "showCompleteForm", method = {RequestMethod.GET, RequestMethod.POST})
+    public String showCompleteForm(Model model) {
+        System.out.println("I reached the JSP @RequestMapping - (/hello/showCompleteForm)");
+        return "views/completeform-form";
+    }
+
+    // Using JSP to read the URL parameter
+    @RequestMapping(path = "processCompleteForm", method = {RequestMethod.GET, RequestMethod.POST})
+    public String processCompleteForm(HttpServletRequest httpServletRequest, Model model) {
+        System.out.println("I reached the JSP @RequestMapping - (/hello/processCompleteForm)");
+        model.addAttribute("httpServletRequest", httpServletRequest.getMethod());
+        return "views/completeform-confirmation";
+    }
+
+    // Handler Method:
     @RequestMapping(path = "showForm", method = {RequestMethod.GET, RequestMethod.POST})
     public String showForm() {
         System.out.println("I reached the JSP @RequestMapping - (/hello/showForm)");
         return "views/helloworld-form";
     }
 
-    // Using Thymeleaf to read the URL parameter
+    // Using JSP to read the URL parameter
     @RequestMapping(path = "processForm", method = {RequestMethod.GET, RequestMethod.POST})
     public String processForm() {
         System.out.println("I reached the JSP @RequestMapping - (/hello/processForm)");

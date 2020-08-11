@@ -1,8 +1,10 @@
 package main.java.com.luizconrado.springmvc.controllers;
 
+import main.java.com.luizconrado.springmvc.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,16 +20,44 @@ public class HelloWorldControllerThymeleaf {
     WebApplicationContext applicationContext;
 
     // Handler Method:
+    @RequestMapping(value = "showCompleteForm", method = {RequestMethod.GET, RequestMethod.POST})
+    public String showCompleteForm(Model model) {
+
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/showCompleteForm)");
+        model.addAttribute("student", new Student());
+
+        return "templates/completeform-form";
+    }
+
+    // Using Thymeleaf to read the URL parameter
+    @RequestMapping(path = "processCompleteForm", method = {RequestMethod.GET, RequestMethod.POST})
+    public String processCompleteForm(HttpServletRequest httpServletRequest, @ModelAttribute("student") Student student, Model model) {
+
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/processCompleteForm)");
+        model.addAttribute("httpServletRequest", httpServletRequest.getMethod());
+
+        System.out.println("Request:");
+        System.out.println(httpServletRequest);
+        System.out.println("Received Object Data:");
+        System.out.println(student);
+
+        model.addAttribute("studentCreated", student);
+
+        return "templates/completeform-confirmation";
+    }
+
+
+    // Handler Method:
     @RequestMapping(path = "showForm", method = {RequestMethod.GET, RequestMethod.POST})
     public String showForm(Model model) {
-        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/showForm)");
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/showForm)");
         return "templates/helloworld-form";
     }
 
     // Using Thymeleaf to read the URL parameter
     @RequestMapping(path = "processForm", method = {RequestMethod.GET, RequestMethod.POST})
     public String processForm(HttpServletRequest httpServletRequest, Model model) {
-        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processForm)");
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/processForm)");
         model.addAttribute("httpServletRequest", httpServletRequest.getMethod());
         return "templates/helloworld";
     }
@@ -36,14 +66,14 @@ public class HelloWorldControllerThymeleaf {
     // Handler Method:
     @RequestMapping(path = "showFormV2", method = {RequestMethod.GET, RequestMethod.POST})
     public String showFormV2(Model model) {
-        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/showFormV2)");
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/showFormV2)");
         return "templates/helloworld-form-v2";
     }
 
     // Using HttpServletRequest to get the desired parameter
     @RequestMapping(path = "processFormV2", method = {RequestMethod.GET, RequestMethod.POST})
     public String processFormV2(HttpServletRequest request, Model model) {
-        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processFormV2)");
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/processFormV2)");
 
 //        model.addAttribute("httpServletRequest", request.getMethod());
 
@@ -66,7 +96,7 @@ public class HelloWorldControllerThymeleaf {
     // Handler Method:
     @RequestMapping(path = "showFormV3", method = {RequestMethod.GET, RequestMethod.POST})
     public String showFormV3(Model model) {
-        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/showFormV3)");
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/showFormV3)");
 
         System.out.println(applicationContext.getServletContext().getContextPath());
         System.out.println(applicationContext.getServletContext().getRealPath("/"));
@@ -80,7 +110,7 @@ public class HelloWorldControllerThymeleaf {
     // This is called Annotation Parameter Binding
     @RequestMapping(path = "processFormV3", method = {RequestMethod.GET, RequestMethod.POST})
     public String processFormV3(@RequestParam("studentName") String studentName, Model model) {
-        System.out.println("I reached the JSP @RequestMapping - (/thymeleaf/hello/processFormV3)");
+        System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/processFormV3)");
 
 //        model.addAttribute("httpServletRequest", request.getMethod());
 

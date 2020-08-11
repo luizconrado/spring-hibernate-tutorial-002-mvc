@@ -50,6 +50,7 @@
         <h2>Java Server Pages (JSP)</h2>
         <ul>
             <li><a href="${pageContext.request.contextPath}/">JSP - Main Menu</a></li>
+            <li><a href="${pageContext.request.contextPath}/hello/showCompleteForm">JSP - Show Complete Form</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showForm">JSP - Show Form</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showFormV2">JSP - Show Form V2</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showFormV3">JSP - Show Form V3</a></li>
@@ -59,6 +60,7 @@
         <h2>Thymeleaf</h2>
         <ul>
             <li><a href="${pageContext.request.contextPath}/thymeleaf">Thymeleaf - Main Menu</a></li>
+            <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showCompleteForm">Thymeleaf - Show Complete Form</a></li>
             <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showForm">Thymeleaf - Show Form</a></li>
             <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showFormV2">Thymeleaf - Show Form V2</a></li>
             <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showFormV3">Thymeleaf - Show Form V3</a></li>
