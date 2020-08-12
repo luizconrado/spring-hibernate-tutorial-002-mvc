@@ -1,15 +1,23 @@
 package main.java.com.luizconrado.springmvc.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Student {
+
+    public static final Map<String, String> professionMap =
+            Map.of("Developer", "Developer", "Web Designer", "Web Designer", "Engineer", "Engineer");
 
     private String fullName;
     private String email;
     private String password;
 
     //    https://vladmihalcea.com/date-timestamp-jpa-hibernate/
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 
     private String profession;
@@ -83,6 +91,7 @@ public class Student {
     public void setNote(String note) {
         this.note = note;
     }
+
 
     @Override
     public boolean equals(Object o) {

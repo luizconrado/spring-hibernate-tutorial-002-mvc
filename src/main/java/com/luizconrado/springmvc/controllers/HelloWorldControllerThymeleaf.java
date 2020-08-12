@@ -4,13 +4,13 @@ import main.java.com.luizconrado.springmvc.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(value = "/thymeleaf/hello")
@@ -26,18 +26,33 @@ public class HelloWorldControllerThymeleaf {
         System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/showCompleteForm)");
         model.addAttribute("student", new Student());
 
+        // https://o7planning.org/en/11659/thymeleaf-form-select-option-example
+        model.addAttribute("professionMap", Student.professionMap);
+
         return "templates/completeform-form";
     }
 
     // Using Thymeleaf to read the URL parameter
     @RequestMapping(path = "processCompleteForm", method = {RequestMethod.GET, RequestMethod.POST})
-    public String processCompleteForm(HttpServletRequest httpServletRequest, @ModelAttribute("student") Student student, Model model) {
+    public String processCompleteForm(@ModelAttribute("student") Student student,
+                                      @RequestBody String requestBody,
+                                      HttpServletRequest httpServletRequest,
+                                      Model model) {
 
         System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/processCompleteForm)");
         model.addAttribute("httpServletRequest", httpServletRequest.getMethod());
 
+        System.out.println("---------------------------------------");
         System.out.println("Request:");
         System.out.println(httpServletRequest);
+        System.out.println(requestBody);
+        try {
+            String requestString = httpServletRequest.getReader().lines().collect(Collectors.joining(System.lineSeparator()));
+            System.out.println("requestString: " + requestString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         System.out.println("Received Object Data:");
         System.out.println(student);
 

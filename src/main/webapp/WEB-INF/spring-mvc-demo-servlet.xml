@@ -70,19 +70,19 @@
         <property name="characterEncoding" value="UTF-8"/>
     </bean>
 
-<!--    You should be using SpringResourceTemplateResolver for web projects (using SpringMvc controllers), -->
-<!--    and ClassLoaderTemplateResolver for command line projects, or when you need to generate html for -->
-<!--    non-web applications (such as sending html email or something like that).-->
+    <!--    You should be using SpringResourceTemplateResolver for web projects (using SpringMvc controllers), -->
+    <!--    and ClassLoaderTemplateResolver for command line projects, or when you need to generate html for -->
+    <!--    non-web applications (such as sending html email or something like that).-->
 
-<!--    <bean-->
-<!--            class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver"-->
-<!--            id="classLoaderTemplateResolver">-->
-<!--        <property name="prefix" value="/WEB-INF/"/>-->
-<!--        <property name="suffix" value=".html"/>-->
-<!--        <property name="cacheable" value="true"/>-->
-<!--        <property name="templateMode" value="HTML"/>-->
-<!--        <property name="characterEncoding" value="UTF-8"/>-->
-<!--    </bean>-->
+    <!--    <bean-->
+    <!--            class="org.thymeleaf.templateresolver.ClassLoaderTemplateResolver"-->
+    <!--            id="classLoaderTemplateResolver">-->
+    <!--        <property name="prefix" value="/WEB-INF/"/>-->
+    <!--        <property name="suffix" value=".html"/>-->
+    <!--        <property name="cacheable" value="true"/>-->
+    <!--        <property name="templateMode" value="HTML"/>-->
+    <!--        <property name="characterEncoding" value="UTF-8"/>-->
+    <!--    </bean>-->
 
     <bean id="resourceBundleMessageSource"
           class="org.springframework.context.support.ResourceBundleMessageSource">
@@ -93,10 +93,15 @@
         <property name="defaultEncoding" value="UTF-8"/>
     </bean>
 
+    <bean id="java8TimeDialect"
+          class="org.thymeleaf.extras.java8time.dialect.Java8TimeDialect">
+    </bean>
+
     <bean id="templateEngine"
           class="org.thymeleaf.spring5.SpringTemplateEngine">
         <property name="templateResolver" ref="templateResolver"/>
         <property name="templateEngineMessageSource" ref="resourceBundleMessageSource"/>
+        <property name="additionalDialects" ref="java8TimeDialect"/>
         <property name="enableSpringELCompiler" value="true"/>
     </bean>
 

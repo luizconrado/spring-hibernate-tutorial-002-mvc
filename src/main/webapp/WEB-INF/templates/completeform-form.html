@@ -28,13 +28,14 @@
 <div class="container">
     <div class="row">
         <div class="col text-center">
-            <p>User Registration</p>
+            <p style="margin-top: 20px;">User Registration</p>
         </div>
     </div>
 
     <div class="row">
         <div class="col">
-            <form th:action="@{/thymeleaf/hello/processCompleteForm}" th:object="${student}" action="#" method="get" th:method="post">
+            <form action="#" th:action="@{/thymeleaf/hello/processCompleteForm}" method="get" th:method="post"
+                  th:object="${student}">
 
                 <div class="form-group">
                     <label for="fullNameId">Full Name</label>
@@ -51,10 +52,31 @@
                         else.</small>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group datepicker date">
                     <label for="passwordId">Password</label>
-                    <input class="form-control" th:field="*{password}" type="password" id="passwordId" name="passwordName"
+                    <input class="form-control" th:field="*{password}" type="password" id="passwordId"
+                           name="passwordName"
                            placeholder="Your Password">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="birthdayId">Birthday</label>
+                    <input class="form-control" th:field="*{birthday}" type="date" id="birthdayId" name="birthdayName"
+                           min="1900-01-01" max="2020-12-31" placeholder="Your Birthday">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="professionId">Your Profession</label>
+                    <select class="form-control" th:field="*{profession}" type="date" id="professionId"
+                            name="professionName">
+                        <option th:value="''" th:text="'Select your Profession'" selected></option>
+<!--                        <option value="" disabled selected>Select your option</option>-->
+                        <!-- https://o7planning.org/en/11659/thymeleaf-form-select-option-example-->
+                        <option th:each="entry : ${professionMap}" th:value="${entry.key}" th:text="${entry.value}">
+                        </option>
+                    </select>
                 </div>
 
                 <div class="form-check">
