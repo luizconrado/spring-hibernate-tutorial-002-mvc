@@ -3,6 +3,7 @@ package main.java.com.luizconrado.springmvc.model;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -20,12 +21,19 @@ public class Student {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+    private LocalDateTime registeredTimestamp;
+
     private String profession;
     private boolean married;
     private String gender;
     private String note;
 
     public Student() {
+    }
+
+    public static Map<String, String> getProfessionMap() {
+        return professionMap;
     }
 
     public String getFullName() {
@@ -58,6 +66,14 @@ public class Student {
 
     public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
+    }
+
+    public LocalDateTime getRegisteredTimestamp() {
+        return registeredTimestamp;
+    }
+
+    public void setRegisteredTimestamp(LocalDateTime registeredTimestamp) {
+        this.registeredTimestamp = registeredTimestamp;
     }
 
     public String getProfession() {
@@ -103,6 +119,7 @@ public class Student {
                 Objects.equals(email, student.email) &&
                 Objects.equals(password, student.password) &&
                 Objects.equals(birthday, student.birthday) &&
+                Objects.equals(registeredTimestamp, student.registeredTimestamp) &&
                 Objects.equals(profession, student.profession) &&
                 Objects.equals(gender, student.gender) &&
                 Objects.equals(note, student.note);
@@ -110,7 +127,7 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fullName, email, password, birthday, profession, married, gender, note);
+        return Objects.hash(fullName, email, password, birthday, registeredTimestamp, profession, married, gender, note);
     }
 
 
@@ -121,6 +138,7 @@ public class Student {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
+                ", registeredTimestamp=" + registeredTimestamp +
                 ", profession='" + profession + '\'' +
                 ", married=" + married +
                 ", gender='" + gender + '\'' +

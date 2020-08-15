@@ -72,11 +72,19 @@
                     <select class="form-control" th:field="*{profession}" type="date" id="professionId"
                             name="professionName">
                         <option th:value="''" th:text="'Select your Profession'" selected></option>
-<!--                        <option value="" disabled selected>Select your option</option>-->
+                        <!--                        <option value="" disabled selected>Select your option</option>-->
                         <!-- https://o7planning.org/en/11659/thymeleaf-form-select-option-example-->
                         <option th:each="entry : ${professionMap}" th:value="${entry.key}" th:text="${entry.value}">
                         </option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="registeredTimestampId">Registration Timestamp</label>
+                    <input class="form-control" th:field="*{registeredTimestamp}" type="datetime-local"
+                           id="registeredTimestampId"
+                           name="registeredTimestampName" value="2018-06-12T19:30"
+                           min="2010-01-01T00:00:00" max="2021-01-01T00:00:00" placeholder="2018-06-12T19:30">
                 </div>
 
                 <div class="form-check">
@@ -84,6 +92,7 @@
                            value="marriedValue" type="checkbox" id="marriedId">
                     <label class="form-check-label" for="marriedId">Married?</label>
                 </div>
+
 
                 <div class="form-group text-center">
                     <button type="submit" value="Submit" class="btn btn-primary">Submit</button>
@@ -106,6 +115,26 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+
+
+<script>
+
+    // https://stackoverflow.com/questions/3842614/how-do-i-call-a-javascript-function-on-page-load
+    // https://www.w3schools.com/jsref/prop_text_defaultvalue.asp
+    // https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_text_defaultvalue3
+    // https://stackoverflow.com/questions/1531093/how-do-i-get-the-current-date-in-javascript
+    window.onload = function currentDate() {
+        var utc = new Date().toJSON();
+        var utcDate = utc.slice(0, 10);
+        // var utc = utc.slice(0, 19);
+        var utc = utc.slice(0, 16);
+        console.log(utc);
+        console.log(utcDate);
+        document.getElementById("birthdayId").defaultValue = utcDate;
+        document.getElementById("registeredTimestampId").defaultValue = utc;
+    }
+
+</script>
 
 </body>
 </html>
