@@ -15,7 +15,7 @@ public class Student {
             new LinkedHashMap<>(Map.of("Developer", "Developer", "Web Designer", "Web Designer", "Engineer", "Engineer"));
 
     private static final Map<String, String> genderMap =
-            new LinkedHashMap<>(Map.of("Female", "Female", "Male", "Male", "Don't want to disclose", "Don't want to disclose"));
+            new LinkedHashMap<>(Map.of("Female", "Female", "Male", "Male"));
 
     private String fullName;
     private String email;
