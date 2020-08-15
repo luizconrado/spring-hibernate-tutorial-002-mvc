@@ -27,7 +27,8 @@ public class HelloWorldControllerThymeleaf {
         model.addAttribute("student", new Student());
 
         // https://o7planning.org/en/11659/thymeleaf-form-select-option-example
-        model.addAttribute("professionMap", Student.professionMap);
+        model.addAttribute("professionMap", Student.getProfessionMap());
+        model.addAttribute("genderMap", Student.getGenderMap());
 
         return "templates/completeform-form";
     }

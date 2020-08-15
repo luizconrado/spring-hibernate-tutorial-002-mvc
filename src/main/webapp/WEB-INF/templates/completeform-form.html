@@ -37,12 +37,26 @@
             <form action="#" th:action="@{/thymeleaf/hello/processCompleteForm}" method="get" th:method="post"
                   th:object="${student}">
 
+
+                <div class="form-group">
+                    <label for="genderId">Your Gender</label>
+                    <select class="form-control" th:field="*{gender}" id="genderId" name="genderName">
+                        <option th:value="''" th:text="'Select your Gender'" selected></option>
+                        <!-- <option value="" disabled selected>Select your option</option>-->
+                        <!-- https://o7planning.org/en/11659/thymeleaf-form-select-option-example-->
+                        <option th:each="genderEntry : ${genderMap}" th:value="${genderEntry.key}" th:text="${genderEntry.value}">
+                        </option>
+                    </select>
+                </div>
+
+
                 <div class="form-group">
                     <label for="fullNameId">Full Name</label>
                     <input class="form-control" th:field="*{fullName}" type="text" id="fullNameId" name="fullNameName"
                            aria-describedby="fullNameHelp" placeholder="Enter your Full Name">
                     <small id="fullNameHelp" class="form-text text-muted">Please enter your full name</small>
                 </div>
+
 
                 <div class="form-group">
                     <label for="emailId">Email address</label>
@@ -52,7 +66,8 @@
                         else.</small>
                 </div>
 
-                <div class="form-group datepicker date">
+
+                <div class="form-group">
                     <label for="passwordId">Password</label>
                     <input class="form-control" th:field="*{password}" type="password" id="passwordId"
                            name="passwordName"
@@ -60,7 +75,7 @@
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group datepicker date">
                     <label for="birthdayId">Birthday</label>
                     <input class="form-control" th:field="*{birthday}" type="date" id="birthdayId" name="birthdayName"
                            min="1900-01-01" max="2020-12-31" placeholder="Your Birthday">
@@ -69,15 +84,15 @@
 
                 <div class="form-group">
                     <label for="professionId">Your Profession</label>
-                    <select class="form-control" th:field="*{profession}" type="date" id="professionId"
-                            name="professionName">
+                    <select class="form-control" th:field="*{profession}" id="professionId" name="professionName">
                         <option th:value="''" th:text="'Select your Profession'" selected></option>
-                        <!--                        <option value="" disabled selected>Select your option</option>-->
+                        <!-- <option value="" disabled selected>Select your option</option>-->
                         <!-- https://o7planning.org/en/11659/thymeleaf-form-select-option-example-->
-                        <option th:each="entry : ${professionMap}" th:value="${entry.key}" th:text="${entry.value}">
+                        <option th:each="professionEntry : ${professionMap}" th:value="${professionEntry.key}" th:text="${professionEntry.value}">
                         </option>
                     </select>
                 </div>
+
 
                 <div class="form-group">
                     <label for="registeredTimestampId">Registration Timestamp</label>
@@ -86,6 +101,15 @@
                            name="registeredTimestampName" value="2018-06-12T19:30"
                            min="2010-01-01T00:00:00" max="2021-01-01T00:00:00" placeholder="2018-06-12T19:30">
                 </div>
+
+
+                <div class="form-group">
+                    <label for="noteId">Notes</label>
+                    <textarea class="form-control" th:field="*{note}" id="noteId" name="noteName" rows="4" cols="50"
+                              aria-describedby="noteHelp" placeholder="Enter any additional Notes here"></textarea>
+                    <small id="noteHelp" class="form-text text-muted">Please enter any additional notes here</small>
+                </div>
+
 
                 <div class="form-check">
                     <input class="form-check-input" th:field="*{married}" th:value="marriedValueJava" name="marriedName"

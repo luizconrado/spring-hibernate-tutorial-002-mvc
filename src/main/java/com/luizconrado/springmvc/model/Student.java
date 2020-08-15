@@ -5,19 +5,24 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class Student {
 
-    public static final Map<String, String> professionMap =
-            Map.of("Developer", "Developer", "Web Designer", "Web Designer", "Engineer", "Engineer");
+    private static final Map<String, String> professionMap =
+            new LinkedHashMap<>(Map.of("Developer", "Developer", "Web Designer", "Web Designer", "Engineer", "Engineer"));
+
+    private static final Map<String, String> genderMap =
+            new LinkedHashMap<>(Map.of("Female", "Female", "Male", "Male", "Don't want to disclose", "Don't want to disclose"));
 
     private String fullName;
     private String email;
     private String password;
 
     //    https://vladmihalcea.com/date-timestamp-jpa-hibernate/
+    //    https://thorben-janssen.com/whats-new-in-jpa-2-2/
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate birthday;
 
@@ -34,6 +39,10 @@ public class Student {
 
     public static Map<String, String> getProfessionMap() {
         return professionMap;
+    }
+
+    public static Map<String, String> getGenderMap() {
+        return genderMap;
     }
 
     public String getFullName() {
@@ -108,7 +117,6 @@ public class Student {
         this.note = note;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -145,4 +153,5 @@ public class Student {
                 ", note='" + note + '\'' +
                 '}';
     }
+
 }
