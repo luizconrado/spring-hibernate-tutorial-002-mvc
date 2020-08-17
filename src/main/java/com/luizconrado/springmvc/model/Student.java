@@ -17,7 +17,8 @@ public class Student {
     private static final Map<String, String> genderMap =
             new LinkedHashMap<>(Map.of("Female", "Female", "Male", "Male"));
 
-    private String fullName;
+    private String firstName;
+    private String lastName;
     private String email;
     private String password;
 
@@ -45,12 +46,20 @@ public class Student {
         return genderMap;
     }
 
-    public String getFullName() {
-        return fullName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFullName(String fullName) {
-        this.fullName = fullName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -117,13 +126,15 @@ public class Student {
         this.note = note;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
         return married == student.married &&
-                Objects.equals(fullName, student.fullName) &&
+                Objects.equals(firstName, student.firstName) &&
+                Objects.equals(lastName, student.lastName) &&
                 Objects.equals(email, student.email) &&
                 Objects.equals(password, student.password) &&
                 Objects.equals(birthday, student.birthday) &&
@@ -135,14 +146,15 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return Objects.hash(fullName, email, password, birthday, registeredTimestamp, profession, married, gender, note);
+        return Objects.hash(firstName, lastName, email, password, birthday, registeredTimestamp, profession, married, gender, note);
     }
 
 
     @Override
     public String toString() {
         return "Student{" +
-                "fullName='" + fullName + '\'' +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +
@@ -153,5 +165,4 @@ public class Student {
                 ", note='" + note + '\'' +
                 '}';
     }
-
 }
