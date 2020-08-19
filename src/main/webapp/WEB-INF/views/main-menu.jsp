@@ -54,6 +54,8 @@
             <li><a href="${pageContext.request.contextPath}/hello/showForm">JSP - Show Form</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showFormV2">JSP - Show Form V2</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showFormV3">JSP - Show Form V3</a></li>
+            <li>------ Student Exercises ------</li>
+            <li><a href="${pageContext.request.contextPath}/student/showForm">JSP - Student - Show Form</a></li>
         </ul>
     </div>
     <div class="column" style="background-color:#bbb;">
