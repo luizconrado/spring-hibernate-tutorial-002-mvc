@@ -12,6 +12,13 @@ public class HomeControllerThymeleaf {
 
 //    private static final Logger logger = Logger.getLogger(HomeControllerThymeleaf.class);
 
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
+    public String showPage(Model model) {
+
+        System.out.println("I reached the Thymeleaf @GetMapping(\"/\") - Root");
+        return "templates/main-menu";
+    }
+
 
     @GetMapping(value = "/test")
     public String index(Model model) {
@@ -19,14 +26,6 @@ public class HomeControllerThymeleaf {
         System.out.println("I reached the Thymeleaf @GetMapping(\"/\"test)");
         model.addAttribute("message", "Hello Spring MVC 5!");
         return "templates/index";
-    }
-
-
-    @RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
-    public String showPage(Model model) {
-
-        System.out.println("I reached the Thymeleaf @GetMapping(\"/\") - Root");
-        return "templates/main-menu";
     }
 
 

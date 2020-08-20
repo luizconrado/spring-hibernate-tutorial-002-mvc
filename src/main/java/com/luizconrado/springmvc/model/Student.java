@@ -4,10 +4,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Student {
 
@@ -17,8 +14,13 @@ public class Student {
     private static final Map<String, String> genderMap =
             new LinkedHashMap<>(Map.of("Female", "Female", "Male", "Male"));
 
+    // https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
+    // https://www.baeldung.com/spring-mvc-form-tags
+    private static final List<String> countryList = new ArrayList<>(Arrays.asList("Brazil", "France", "Germany", "India", "USA"));
+
     private String firstName;
     private String lastName;
+    private String country;
     private String email;
     private String password;
 
@@ -36,6 +38,7 @@ public class Student {
     private String note;
 
     public Student() {
+
     }
 
     public static Map<String, String> getProfessionMap() {
@@ -44,6 +47,10 @@ public class Student {
 
     public static Map<String, String> getGenderMap() {
         return genderMap;
+    }
+
+    public static List<String> getCountryList() {
+        return countryList;
     }
 
     public String getFirstName() {
@@ -60,6 +67,14 @@ public class Student {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public String getEmail() {
@@ -126,7 +141,6 @@ public class Student {
         this.note = note;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -135,6 +149,7 @@ public class Student {
         return married == student.married &&
                 Objects.equals(firstName, student.firstName) &&
                 Objects.equals(lastName, student.lastName) &&
+                Objects.equals(country, student.country) &&
                 Objects.equals(email, student.email) &&
                 Objects.equals(password, student.password) &&
                 Objects.equals(birthday, student.birthday) &&
@@ -146,15 +161,15 @@ public class Student {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, email, password, birthday, registeredTimestamp, profession, married, gender, note);
+        return Objects.hash(firstName, lastName, country, email, password, birthday, registeredTimestamp, profession, married, gender, note);
     }
-
 
     @Override
     public String toString() {
         return "Student{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", country='" + country + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", birthday=" + birthday +

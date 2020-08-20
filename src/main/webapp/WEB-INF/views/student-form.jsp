@@ -49,6 +49,25 @@
 
             <br>
             <br>
+
+            Gender:
+            <form:select path="gender">
+                <form:option value="Male" label="Male"/>
+                <form:option value="Female" label="Female"/>
+            </form:select>
+
+            <br>
+            <br>
+
+            Country:
+            <form:select path="country">
+                <%-- https://www.baeldung.com/spring-mvc-form-tags --%>
+                <form:options items="${countries}"/>
+            </form:select>
+
+            <br>
+            <br>
+
         </div>
 
         <div>

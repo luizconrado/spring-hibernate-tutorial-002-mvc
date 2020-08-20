@@ -37,7 +37,25 @@
 
 <div style="margin: auto; width: 67%; padding-top: 20px">
 <%--    <p>The student is confirmed: ${student.firstName + ' ' + student.lastName}</p>--%>
-    <p>The student is confirmed: ${student.firstName} ${student.lastName}</p>
+    <p style="font-weight: bold">The student is confirmed:</p>
+    <p style="font-style: italic">Name: ${student.firstName} ${student.lastName}</p>
+    <p style="font-style: italic">Gender: ${student.gender}</p>
+    <p style="font-style: italic">Country: ${student.country}</p>
+    <p style="font-style: italic">Email: ${student.email}</p>
+    <p style="font-style: italic">Password: ${student.password}</p>
+    <p style="font-style: italic">Birthday: ${student.birthday}</p>
+    <p style="font-style: italic">Registration Timestamp: ${student.registeredTimestamp}</p>
+<%--    <p>: ${student}</p>--%>
+
+    <br>
+    <br>
+
+    <p>
+        All data as toString:
+        <br>
+        ${student}
+    </p>
+
 </div>
 
 

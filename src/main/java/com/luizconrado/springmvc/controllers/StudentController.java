@@ -19,6 +19,7 @@ public class StudentController {
 
         // add student object to the model
         theModel.addAttribute("student", theStudent);
+        theModel.addAttribute("countries", Student.getCountryList());
 
         return "views/student-form";
     }
