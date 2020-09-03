@@ -8,11 +8,18 @@ import java.util.*;
 
 public class Student {
 
-    private static final Map<String, String> professionMap =
-            new LinkedHashMap<>(Map.of("Developer", "Developer", "Web Designer", "Web Designer", "Engineer", "Engineer"));
+    private static final Map<String, String> professionMap = new LinkedHashMap<>();
 
-    private static final Map<String, String> genderMap =
-            new LinkedHashMap<>(Map.of("Female", "Female", "Male", "Male"));
+    private static final Map<String, String> genderMap = new LinkedHashMap<>();
+
+    static {
+        professionMap.put("Developer", "Developer");
+        professionMap.put("Web Designer", "Web Designer");
+        professionMap.put("Engineer", "Engineer");
+
+        genderMap.put("Female", "Female");
+        genderMap.put("Male", "Male");
+    }
 
     // https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
     // https://www.baeldung.com/spring-mvc-form-tags
