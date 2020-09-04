@@ -135,6 +135,27 @@
                 </div>
 
 
+
+                <div class="form-row">
+                    <fieldset class="form-group">
+                        <legend class="col-form-label">Favorite Programing Language</legend>
+                        <div class="form-check-inline" id="programingLanguageOptions" th:each="programingLanguageEntry : ${programingLanguageOptions}">
+                            <input class="form-check-input" type="radio"
+                                   name="programingLanguageName"
+                                   th:field="*{favoriteProgramingLanguage}"
+                                   value="option1"
+                                   th:value="${programingLanguageEntry.key}"
+                                   th:id="'ProgramingLanguage' + ${programingLanguageEntry.key}">
+                            <label class="form-check-label"
+                                   th:for="'ProgramingLanguage' + ${programingLanguageEntry.key}"
+                                   th:text="${programingLanguageEntry.value}">
+                                Default radio
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
                 <div class="form-group">
                     <label for="registeredTimestampId">Registration Timestamp</label>
                     <input class="form-control" th:field="*{registeredTimestamp}" type="datetime-local"

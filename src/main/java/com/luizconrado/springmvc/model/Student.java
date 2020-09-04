@@ -1,5 +1,6 @@
 package main.java.com.luizconrado.springmvc.model;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
@@ -12,24 +13,39 @@ public class Student {
 
     private static final Map<String, String> genderMap = new LinkedHashMap<>();
 
+    // @Values is used to initiate variable with values from another file
+    // @Value("#{programingLanguageOptions}")
+    private static final Map<String, String> programingLanguageOptions = new LinkedHashMap<>();
+
     static {
+
         professionMap.put("Developer", "Developer");
         professionMap.put("Web Designer", "Web Designer");
         professionMap.put("Engineer", "Engineer");
 
         genderMap.put("Female", "Female");
         genderMap.put("Male", "Male");
+
+        programingLanguageOptions.put("Java", "Java");
+        programingLanguageOptions.put("CPP", "C++");
+        programingLanguageOptions.put("JS", "JavaScript");
+        programingLanguageOptions.put("Python", "Python");
     }
 
     // https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
     // https://www.baeldung.com/spring-mvc-form-tags
     private static final List<String> countryList = new ArrayList<>(Arrays.asList("Brazil", "France", "Germany", "India", "USA"));
 
+
+    // @Values is used to initiate variable with values from another file
+    // @Value("#{screenSizeOptions}")
+    // private Map<String, String> laptopScreenSizeOptions;
     private String firstName;
     private String lastName;
     private String country;
     private String email;
     private String password;
+
 
     //    https://vladmihalcea.com/date-timestamp-jpa-hibernate/
     //    https://thorben-janssen.com/whats-new-in-jpa-2-2/
@@ -40,8 +56,10 @@ public class Student {
     private LocalDateTime registeredTimestamp;
 
     private String profession;
+    private String favoriteProgramingLanguage;
     private boolean married;
     private String gender;
+    private String laptopScreenSize;
     private String note;
 
     public Student() {
@@ -54,6 +72,10 @@ public class Student {
 
     public static Map<String, String> getGenderMap() {
         return genderMap;
+    }
+
+    public static Map<String, String> getProgramingLanguageOptions() {
+        return programingLanguageOptions;
     }
 
     public static List<String> getCountryList() {
@@ -124,6 +146,14 @@ public class Student {
         this.profession = profession;
     }
 
+    public String getFavoriteProgramingLanguage() {
+        return favoriteProgramingLanguage;
+    }
+
+    public void setFavoriteProgramingLanguage(String favoriteProgramingLanguage) {
+        this.favoriteProgramingLanguage = favoriteProgramingLanguage;
+    }
+
     public boolean isMarried() {
         return married;
     }
@@ -138,6 +168,14 @@ public class Student {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getLaptopScreenSize() {
+        return laptopScreenSize;
+    }
+
+    public void setLaptopScreenSize(String laptopScreenSize) {
+        this.laptopScreenSize = laptopScreenSize;
     }
 
     public String getNote() {
@@ -162,13 +200,15 @@ public class Student {
                 Objects.equals(birthday, student.birthday) &&
                 Objects.equals(registeredTimestamp, student.registeredTimestamp) &&
                 Objects.equals(profession, student.profession) &&
+                Objects.equals(favoriteProgramingLanguage, student.favoriteProgramingLanguage) &&
                 Objects.equals(gender, student.gender) &&
+                Objects.equals(laptopScreenSize, student.laptopScreenSize) &&
                 Objects.equals(note, student.note);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, country, email, password, birthday, registeredTimestamp, profession, married, gender, note);
+        return Objects.hash(firstName, lastName, country, email, password, birthday, registeredTimestamp, profession, favoriteProgramingLanguage, married, gender, laptopScreenSize, note);
     }
 
     @Override
@@ -182,9 +222,12 @@ public class Student {
                 ", birthday=" + birthday +
                 ", registeredTimestamp=" + registeredTimestamp +
                 ", profession='" + profession + '\'' +
+                ", favoriteProgramingLanguage='" + favoriteProgramingLanguage + '\'' +
                 ", married=" + married +
                 ", gender='" + gender + '\'' +
+                ", laptopScreenSize='" + laptopScreenSize + '\'' +
                 ", note='" + note + '\'' +
                 '}';
     }
+
 }

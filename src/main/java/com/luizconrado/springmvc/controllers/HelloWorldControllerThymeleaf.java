@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
@@ -24,11 +23,13 @@ public class HelloWorldControllerThymeleaf {
     public String showCompleteForm(Model model) {
 
         System.out.println("I reached the Thymeleaf @RequestMapping - (/thymeleaf/hello/showCompleteForm)");
-        model.addAttribute("student", new Student());
+        Student student = new Student();
+        model.addAttribute("student", student);
 
         // https://o7planning.org/en/11659/thymeleaf-form-select-option-example
         model.addAttribute("professionMap", Student.getProfessionMap());
         model.addAttribute("genderMap", Student.getGenderMap());
+        model.addAttribute("programingLanguageOptions", Student.getProgramingLanguageOptions());
 
         return "templates/completeform-form";
     }

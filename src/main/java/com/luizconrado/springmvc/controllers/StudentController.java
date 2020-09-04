@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class StudentController {
 
     @RequestMapping(path = "showForm", method = {RequestMethod.GET})
-    public String showForm (Model theModel){
+    public String showForm(Model theModel) {
 
         // create a new student object
         Student theStudent = new Student();
@@ -20,6 +20,7 @@ public class StudentController {
         // add student object to the model
         theModel.addAttribute("student", theStudent);
         theModel.addAttribute("countries", Student.getCountryList());
+        theModel.addAttribute("programingLanguageOptions", Student.getProgramingLanguageOptions());
 
         return "views/student-form";
     }
