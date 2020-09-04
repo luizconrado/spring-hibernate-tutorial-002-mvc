@@ -36,7 +36,9 @@ public class HelloWorldControllerThymeleaf {
     }
 
     // Using Thymeleaf to read the URL parameter
-    @RequestMapping(path = "processCompleteForm", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(path = "processCompleteForm", method = {RequestMethod.GET, RequestMethod.POST},
+            consumes = "application/x-www-form-urlencoded;charset=UTF-8",
+            produces = "text/plain;charset=UTF-8")
     public String processCompleteForm(@ModelAttribute("student") Student student,
                                       @RequestBody String requestBody,
                                       HttpServletRequest httpServletRequest,
