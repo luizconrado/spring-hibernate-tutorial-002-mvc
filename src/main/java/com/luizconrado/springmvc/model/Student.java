@@ -17,6 +17,8 @@ public class Student {
     // @Value("#{programingLanguageOptions}")
     private static final Map<String, String> programingLanguageOptions = new LinkedHashMap<>();
 
+    private static final Map<String, String> laptopScreenSizeOptions = new LinkedHashMap<>();
+
     static {
 
         professionMap.put("Developer", "Developer");
@@ -30,6 +32,13 @@ public class Student {
         programingLanguageOptions.put("CPP", "C++");
         programingLanguageOptions.put("JS", "JavaScript");
         programingLanguageOptions.put("Python", "Python");
+
+        laptopScreenSizeOptions.put("XS", "12");
+        laptopScreenSizeOptions.put("S", "13.3");
+        laptopScreenSizeOptions.put("M", "14");
+        laptopScreenSizeOptions.put("L", "15");
+        laptopScreenSizeOptions.put("XL", "16");
+        laptopScreenSizeOptions.put("XXL", "17");
     }
 
     // https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
@@ -76,6 +85,10 @@ public class Student {
 
     public static Map<String, String> getProgramingLanguageOptions() {
         return programingLanguageOptions;
+    }
+
+    public static Map<String, String> getLaptopScreenSizeOptions() {
+        return laptopScreenSizeOptions;
     }
 
     public static List<String> getCountryList() {
@@ -229,5 +242,4 @@ public class Student {
                 ", note='" + note + '\'' +
                 '}';
     }
-
 }

@@ -21,6 +21,7 @@ public class StudentController {
         theModel.addAttribute("student", theStudent);
         theModel.addAttribute("countries", Student.getCountryList());
         theModel.addAttribute("programingLanguageOptions", Student.getProgramingLanguageOptions());
+        theModel.addAttribute("laptopScreenSizeOptions", Student.getLaptopScreenSizeOptions());
 
         return "views/student-form";
     }

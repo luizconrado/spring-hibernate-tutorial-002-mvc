@@ -156,6 +156,26 @@
                 </div>
 
 
+                <div class="form-row">
+                    <fieldset class="form-group">
+                        <legend class="col-form-label">Favorite Laptop Screen Size</legend>
+                        <div class="form-check-inline" id="laptopScreenSizeOptions" th:each="laptopScreenSizeEntry : ${laptopScreenSizeOptions}">
+                            <input class="form-check-input" type="radio"
+                                   name="laptopScreenSizeName"
+                                   th:field="*{laptopScreenSize}"
+                                   value="option1"
+                                   th:value="${laptopScreenSizeEntry.key}"
+                                   th:id="'LaptopScreenSize' + ${laptopScreenSizeEntry.key}">
+                            <label class="form-check-label"
+                                   th:for="'LaptopScreenSize' + ${laptopScreenSizeEntry.key}"
+                                   th:text="${laptopScreenSizeEntry.value}">
+                                Default radio
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
                 <div class="form-group">
                     <label for="registeredTimestampId">Registration Timestamp</label>
                     <input class="form-control" th:field="*{registeredTimestamp}" type="datetime-local"
