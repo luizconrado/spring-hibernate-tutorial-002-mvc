@@ -41,6 +41,7 @@
     <p style="font-style: italic">Name: ${student.firstName} ${student.lastName}</p>
     <p style="font-style: italic">Gender: ${student.gender}</p>
     <p style="font-style: italic">Country: ${student.country}</p>
+    <p style="font-style: italic">Favorite Programming Language: ${student.favoriteProgramingLanguage}</p>
     <p style="font-style: italic">Email: ${student.email}</p>
     <p style="font-style: italic">Password: ${student.password}</p>
     <p style="font-style: italic">Birthday: ${student.birthday}</p>

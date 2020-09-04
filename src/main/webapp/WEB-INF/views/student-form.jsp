@@ -31,6 +31,14 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <title>Student Form</title>
 
+    <style>
+
+        input[type="radio"]{
+            margin: 0 0 0 10px;
+        }
+
+    </style>
+
 </head>
 <body>
 
@@ -64,6 +72,34 @@
                 <%-- https://www.baeldung.com/spring-mvc-form-tags --%>
                 <form:options items="${countries}"/>
             </form:select>
+
+            <br>
+            <br>
+
+            <form:label path="favoriteProgramingLanguage" for="favoriteProgramingLanguageId">PHP</form:label>
+            <form:radiobutton id="favoriteProgramingLanguageId" path="favoriteProgramingLanguage" value="PHP"
+                              htmlEscape="true"/>
+            &nbsp;&nbsp;&nbsp;
+            <form:label path="favoriteProgramingLanguage" for="favoriteProgramingLanguageId">Java</form:label>
+            <form:radiobutton id="favoriteProgramingLanguageId" path="favoriteProgramingLanguage" value="Java"
+                              htmlEscape="true"/>
+            &nbsp;&nbsp;&nbsp;
+            <form:label path="favoriteProgramingLanguage" for="favoriteProgramingLanguageId">C++</form:label>
+            <form:radiobutton id="favoriteProgramingLanguageId" path="favoriteProgramingLanguage" value="C++"
+                              htmlEscape="true"/>
+            &nbsp;&nbsp;&nbsp;
+            <form:label path="favoriteProgramingLanguage" for="favoriteProgramingLanguageId">C#</form:label>
+            <form:radiobutton id="favoriteProgramingLanguageId" path="favoriteProgramingLanguage" value="C#"
+                              htmlEscape="true"/>
+            &nbsp;&nbsp;&nbsp;
+            <form:label path="favoriteProgramingLanguage" for="favoriteProgramingLanguageId">Python</form:label>
+            <form:radiobutton id="favoriteProgramingLanguageId" path="favoriteProgramingLanguage" value="Python"
+                              htmlEscape="true"/>
+
+            <br>
+            <br>
+
+            <form:radiobuttons path="laptopScreenSize" items="${laptopScreenSizeOptions}" />
 
             <br>
             <br>
