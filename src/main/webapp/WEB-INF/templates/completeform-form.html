@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!--    https://stackoverflow.com/questions/4696499/meta-charset-utf-8-vs-meta-http-equiv-content-type-->
     <meta charset="UTF-8">
     <!--    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>-->
     <!--    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>-->
@@ -37,7 +38,7 @@
 
             <!-- https://getbootstrap.com/docs/4.0/components/forms/-->
             <form action="#" th:action="@{/thymeleaf/hello/processCompleteForm}" method="get" th:method="post"
-                  th:object="${student}">
+                  accept-charset="UTF-8" th:accept-charset="'UTF-8'" th:object="${student}">
 
 
                 <!--                <div class="form-group">-->
@@ -135,11 +136,11 @@
                 </div>
 
 
-
                 <div class="form-row">
                     <fieldset class="form-group">
                         <legend class="col-form-label">Favorite Programing Language</legend>
-                        <div class="form-check-inline" id="programingLanguageOptions" th:each="programingLanguageEntry : ${programingLanguageOptions}">
+                        <div class="form-check-inline" id="programingLanguageOptions"
+                             th:each="programingLanguageEntry : ${programingLanguageOptions}">
                             <input class="form-check-input" type="radio"
                                    name="programingLanguageName"
                                    th:field="*{favoriteProgramingLanguage}"
@@ -159,7 +160,8 @@
                 <div class="form-row">
                     <fieldset class="form-group">
                         <legend class="col-form-label">Favorite Laptop Screen Size</legend>
-                        <div class="form-check-inline" id="laptopScreenSizeOptions" th:each="laptopScreenSizeEntry : ${laptopScreenSizeOptions}">
+                        <div class="form-check-inline" id="laptopScreenSizeOptions"
+                             th:each="laptopScreenSizeEntry : ${laptopScreenSizeOptions}">
                             <input class="form-check-input" type="radio"
                                    name="laptopScreenSizeName"
                                    th:field="*{laptopScreenSize}"

@@ -5,7 +5,7 @@
   Time: 03:05
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
@@ -42,6 +42,7 @@
     <p style="font-style: italic">Gender: ${student.gender}</p>
     <p style="font-style: italic">Country: ${student.country}</p>
     <p style="font-style: italic">Favorite Programming Language: ${student.favoriteProgramingLanguage}</p>
+    <p style="font-style: italic">Laptop Screen Size: ${student.laptopScreenSize}</p>
     <p style="font-style: italic">Email: ${student.email}</p>
     <p style="font-style: italic">Password: ${student.password}</p>
     <p style="font-style: italic">Birthday: ${student.birthday}</p>

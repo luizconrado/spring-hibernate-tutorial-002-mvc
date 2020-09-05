@@ -50,6 +50,7 @@ public class HelloWorldControllerThymeleaf {
         System.out.println("---------------------------------------");
         System.out.println("Request:");
         System.out.println(httpServletRequest);
+        System.out.println("CharacterEncoding = " +  httpServletRequest.getCharacterEncoding());
         System.out.println(requestBody);
         try {
             String requestString = httpServletRequest.getReader().lines().collect(Collectors.joining(System.lineSeparator()));

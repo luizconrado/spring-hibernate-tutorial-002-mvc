@@ -41,6 +41,22 @@
 
     </servlet-mapping>
 
+    <!--Making it UTF-8 Compatible-->
+    <!-- CharsetFilter start-->
+    <filter>
+        <filter-name>CharsetFilter</filter-name>
+        <filter-class>main.java.com.luizconrado.springmvc.configuration.CharacterSetFilter</filter-class>
+        <init-param>
+            <param-name>requestEncoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CharsetFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
