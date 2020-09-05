@@ -178,6 +178,49 @@
                 </div>
 
 
+                <div class="form-row">
+                    <fieldset class="form-group">
+                        <legend class="col-form-label">Favorite Operating Systems</legend>
+                        <div class="form-check-inline" id="operatingSystemOptions"
+                             th:each="operatingSystemEntry : ${operatingSystems}">
+                            <input class="form-check-input" type="checkbox"
+                                   name="operatingSystemName"
+                                   th:field="*{operatingSystem}"
+                                   value="option1"
+                                   th:value="${operatingSystemEntry}"
+                                   th:id="'OperatingSystem' + ${operatingSystemEntry}">
+                            <label class="form-check-label"
+                                   th:for="'OperatingSystem' + ${operatingSystemEntry}"
+                                   th:text="${operatingSystemEntry}">
+                                Default Checkbox
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
+
+                <div class="form-row">
+                    <fieldset class="form-group">
+                        <legend class="col-form-label">Favorite IDEs</legend>
+                        <div class="form-check-inline" id="integratedDevelopmentEnvironmentOptions"
+                             th:each="integratedDevelopmentEnvironmentEntry : ${integratedDevelopmentEnvironments}">
+                            <input class="form-check-input" type="checkbox"
+                                   name="integratedDevelopmentEnvironment"
+                                   th:field="*{integratedDevelopmentEnvironment}"
+                                   value="option1"
+                                   th:value="${integratedDevelopmentEnvironmentEntry}"
+                                   th:id="'IntegratedDevelopmentEnvironment' + ${integratedDevelopmentEnvironmentEntry}">
+                            <label class="form-check-label"
+                                   th:for="'IntegratedDevelopmentEnvironment' + ${integratedDevelopmentEnvironmentEntry}"
+                                   th:text="${integratedDevelopmentEnvironmentEntry}">
+                                Default Checkbox
+                            </label>
+                        </div>
+                    </fieldset>
+                </div>
+
+
                 <div class="form-group">
                     <label for="registeredTimestampId">Registration Timestamp</label>
                     <input class="form-control" th:field="*{registeredTimestamp}" type="datetime-local"

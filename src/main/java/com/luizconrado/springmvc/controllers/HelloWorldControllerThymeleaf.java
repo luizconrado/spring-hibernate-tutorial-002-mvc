@@ -31,6 +31,9 @@ public class HelloWorldControllerThymeleaf {
         model.addAttribute("genderMap", Student.getGenderMap());
         model.addAttribute("programingLanguageOptions", Student.getProgramingLanguageOptions());
         model.addAttribute("laptopScreenSizeOptions", Student.getLaptopScreenSizeOptions());
+        model.addAttribute("operatingSystems", Student.getOperatingSystemList());
+        model.addAttribute("integratedDevelopmentEnvironments", Student.getIntegratedDevelopmentEnvironmentList());
+        model.addAttribute("countries", Student.getCountryList());
 
         return "templates/completeform-form";
     }

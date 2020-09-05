@@ -35,8 +35,12 @@
             <p th:text="'Password: ' + ${studentCreated.password}">password</p>
             <p th:text="'Birthday: ' + ${studentCreated.birthday}">birthday</p>
             <p th:text="'Profession: ' + ${studentCreated.profession}">profession</p>
-            <p th:text="'Favorite Programing Language: ' + ${studentCreated.favoriteProgramingLanguage}">gender</p>
-            <p th:text="'Favorite Screen Size: ' + ${studentCreated.laptopScreenSize}">gender</p>
+            <p th:text="'Favorite Programing Language: ' + ${studentCreated.favoriteProgramingLanguage}">favoriteProgramingLanguage</p>
+            <p th:text="'Favorite Screen Size: ' + ${studentCreated.laptopScreenSize}">laptopScreenSize</p>
+
+            <p th:text="'Favorite Operating Systems: ' + ${#strings.listJoin(studentCreated.operatingSystem, ', ')}">operatingSystem</p>
+            <p th:text="'Favorite IDEs: ' + ${#strings.listJoin(studentCreated.integratedDevelopmentEnvironment, ', ')}">integratedDevelopmentEnvironment</p>
+
             <p th:text="'Married: ' + ${studentCreated.married}">married</p>
             <p th:text="'Gender: ' + ${studentCreated.gender}">gender</p>
             <p th:text="'Note: ' + ${studentCreated.note}">note</p>
