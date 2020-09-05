@@ -37,12 +37,28 @@
             margin: 0 0 0 10px;
         }
 
+        input[type="checkbox"]{
+            margin: 0 0 0 10px;
+        }
+
+        input[name="operatingSystem"]{
+            margin: 0 10px 0 0;
+        }
+
+        input[name="integratedDevelopmentEnvironment"], input[name="laptopScreenSize"]{
+            margin-right:3px;
+        }
+
         #laptopScreenSize1 {
-            margin: 0 0 0 0;
+            margin: 0 3px 0 0;
         }
 
         #favoriteProgramingLanguageId {
             margin: 0 0 0 0;
+        }
+
+        #integratedDevelopmentEnvironment1 {
+            margin-left: 0;
         }
 
     </style>
@@ -84,6 +100,8 @@
             <br>
             <br>
 
+            <form:label path="laptopScreenSize">Favorite Programming Language:</form:label>
+            <br>
             <form:label path="favoriteProgramingLanguage" for="favoriteProgramingLanguageId">PHP</form:label>
             <form:radiobutton id="favoriteProgramingLanguageId" path="favoriteProgramingLanguage" value="PHP"
                               htmlEscape="true"/>
@@ -107,7 +125,36 @@
             <br>
             <br>
 
+            <form:label path="laptopScreenSize">Favorite Laptop Screen Size:</form:label>
+            <br>
             <form:radiobuttons path="laptopScreenSize" items="${laptopScreenSizeOptions}"/>
+
+            <br>
+            <br>
+
+            <form:label path="operatingSystem">Favorite Operating Systems:</form:label>
+            <br>
+            <form:label path="operatingSystem" for="operatingSystemWindowsId">Windows</form:label>
+            <form:checkbox id="operatingSystemWindowsId" path="operatingSystem" value="Windows" htmlEscape="true" />
+
+            <form:label path="operatingSystem" for="operatingSystemMacOSId">Mac OS</form:label>
+            <form:checkbox id="operatingSystemMacOSId" path="operatingSystem" value="MacOS" htmlEscape="true" />
+
+            <form:label path="operatingSystem" for="operatingSystemLinuxId">Linux</form:label>
+            <form:checkbox id="operatingSystemLinuxId" path="operatingSystem" value="Linux" htmlEscape="true" />
+
+            <form:label path="operatingSystem" for="operatingSystemChromeOSId">Chrome OS</form:label>
+            <form:checkbox id="operatingSystemChromeOSId" path="operatingSystem" value="ChromeOS" htmlEscape="true" />
+
+            <form:label path="operatingSystem" for="operatingSystemUNIXId">UNIX</form:label>
+            <form:checkbox id="operatingSystemUNIXId" path="operatingSystem" value="UNIX" htmlEscape="true" />
+
+            <br>
+            <br>
+
+            <form:label path="operatingSystem">Favorite IDE:</form:label>
+            <br>
+            <form:checkboxes path="integratedDevelopmentEnvironment" items="${integratedDevelopmentEnvironments}"/>
 
             <br>
             <br>

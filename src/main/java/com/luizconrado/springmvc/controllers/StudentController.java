@@ -20,6 +20,8 @@ public class StudentController {
         // add student object to the model
         theModel.addAttribute("student", theStudent);
         theModel.addAttribute("countries", Student.getCountryList());
+        theModel.addAttribute("operatingSystems", Student.getOperatingSystemList());
+        theModel.addAttribute("integratedDevelopmentEnvironments", Student.getIntegratedDevelopmentEnvironmentList());
         theModel.addAttribute("programingLanguageOptions", Student.getProgramingLanguageOptions());
         theModel.addAttribute("laptopScreenSizeOptions", Student.getLaptopScreenSizeOptions());
 

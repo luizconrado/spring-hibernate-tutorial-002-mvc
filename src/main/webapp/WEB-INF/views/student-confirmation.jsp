@@ -7,6 +7,8 @@
 --%>
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
 
@@ -43,6 +45,13 @@
     <p style="font-style: italic">Country: ${student.country}</p>
     <p style="font-style: italic">Favorite Programming Language: ${student.favoriteProgramingLanguage}</p>
     <p style="font-style: italic">Laptop Screen Size: ${student.laptopScreenSize}</p>
+
+    <c:forEach items="${student.operatingSystem}" var="os">
+        <p style="font-style: italic">Operating Systems: ${os}</p>
+    </c:forEach>
+
+    <p style="font-style: italic">IDE: ${fn:join(student.integratedDevelopmentEnvironment, ", ")}</p>
+
     <p style="font-style: italic">Email: ${student.email}</p>
     <p style="font-style: italic">Password: ${student.password}</p>
     <p style="font-style: italic">Birthday: ${student.birthday}</p>

@@ -44,6 +44,8 @@ public class Student {
     // https://www.geeksforgeeks.org/initialize-an-arraylist-in-java/
     // https://www.baeldung.com/spring-mvc-form-tags
     private static final List<String> countryList = new ArrayList<>(Arrays.asList("Brazil", "France", "Germany", "India", "USA"));
+    private static final List<String> operatingSystemList = new ArrayList<>(Arrays.asList("Windows", "MacOS", "Linux", "ChromeOS", "UNIX"));
+    private static final List<String> integratedDevelopmentEnvironmentList= new ArrayList<>(Arrays.asList("Intellij", "Eclipse", "VS Code", "Visual Studio", "Sublime Text"));
 
 
     // @Values is used to initiate variable with values from another file
@@ -69,6 +71,8 @@ public class Student {
     private boolean married;
     private String gender;
     private String laptopScreenSize;
+    private String[] operatingSystem;
+    private String[] integratedDevelopmentEnvironment;
     private String note;
 
     public Student() {
@@ -93,6 +97,14 @@ public class Student {
 
     public static List<String> getCountryList() {
         return countryList;
+    }
+
+    public static List<String> getOperatingSystemList() {
+        return operatingSystemList;
+    }
+
+    public static List<String> getIntegratedDevelopmentEnvironmentList() {
+        return integratedDevelopmentEnvironmentList;
     }
 
     public String getFirstName() {
@@ -191,6 +203,22 @@ public class Student {
         this.laptopScreenSize = laptopScreenSize;
     }
 
+    public String[] getOperatingSystem() {
+        return operatingSystem;
+    }
+
+    public void setOperatingSystem(String[] operatingSystem) {
+        this.operatingSystem = operatingSystem;
+    }
+
+    public String[] getIntegratedDevelopmentEnvironment() {
+        return integratedDevelopmentEnvironment;
+    }
+
+    public void setIntegratedDevelopmentEnvironment(String[] integratedDevelopmentEnvironment) {
+        this.integratedDevelopmentEnvironment = integratedDevelopmentEnvironment;
+    }
+
     public String getNote() {
         return note;
     }
@@ -216,12 +244,17 @@ public class Student {
                 Objects.equals(favoriteProgramingLanguage, student.favoriteProgramingLanguage) &&
                 Objects.equals(gender, student.gender) &&
                 Objects.equals(laptopScreenSize, student.laptopScreenSize) &&
+                Arrays.equals(operatingSystem, student.operatingSystem) &&
+                Arrays.equals(integratedDevelopmentEnvironment, student.integratedDevelopmentEnvironment) &&
                 Objects.equals(note, student.note);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, country, email, password, birthday, registeredTimestamp, profession, favoriteProgramingLanguage, married, gender, laptopScreenSize, note);
+        int result = Objects.hash(firstName, lastName, country, email, password, birthday, registeredTimestamp, profession, favoriteProgramingLanguage, married, gender, laptopScreenSize, note);
+        result = 31 * result + Arrays.hashCode(operatingSystem);
+        result = 31 * result + Arrays.hashCode(integratedDevelopmentEnvironment);
+        return result;
     }
 
     @Override
@@ -239,6 +272,8 @@ public class Student {
                 ", married=" + married +
                 ", gender='" + gender + '\'' +
                 ", laptopScreenSize='" + laptopScreenSize + '\'' +
+                ", operatingSystem=" + Arrays.toString(operatingSystem) +
+                ", integratedDevelopmentEnvironment=" + Arrays.toString(integratedDevelopmentEnvironment) +
                 ", note='" + note + '\'' +
                 '}';
     }
