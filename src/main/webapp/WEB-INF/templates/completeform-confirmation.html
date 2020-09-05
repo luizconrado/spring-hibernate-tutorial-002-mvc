@@ -38,6 +38,11 @@
             <p th:text="'Favorite Programing Language: ' + ${studentCreated.favoriteProgramingLanguage}">favoriteProgramingLanguage</p>
             <p th:text="'Favorite Screen Size: ' + ${studentCreated.laptopScreenSize}">laptopScreenSize</p>
 
+            <!-- https://stackoverflow.com/questions/22959987/how-to-process-and-join-string-in-thymeleaf-->
+            <!-- http://forum.thymeleaf.org/listjoin-use-with-externalizing-text-td4027704.html-->
+            <!-- https://vvirlan.wordpress.com/2015/10/04/thymeleaf-strings-utility-method-for-string-objects/-->
+            <!-- https://attacomsian.com/blog/thymeleaf-iterate-map-list-set-array-->
+            <!-- https://frontbackend.com/thymeleaf/thymeleaf-utility-methods-for-lists-->
             <p th:text="'Favorite Operating Systems: ' + ${#strings.listJoin(studentCreated.operatingSystem, ', ')}">operatingSystem</p>
             <p th:text="'Favorite IDEs: ' + ${#strings.listJoin(studentCreated.integratedDevelopmentEnvironment, ', ')}">integratedDevelopmentEnvironment</p>
 
