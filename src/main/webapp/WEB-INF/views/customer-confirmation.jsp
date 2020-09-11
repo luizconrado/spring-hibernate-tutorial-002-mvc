@@ -1,12 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: LuizFelipe
-  Date: 11/09/2020
-  Time: 02:59
+  Date: 19/08/2020
+  Time: 03:05
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <html>
 <head>
 
@@ -29,44 +31,25 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>JSP - Customer Form</title>
+    <title>Student Confirmation</title>
+
 </head>
 <body>
 
-<div class="container">
-    <div class="row">
-        <div class="col text-center">
-            <h3 style="margin-top: 20px;">Customer Registration</h3>
-        </div>
-    </div>
 
-    <form:form action="${pageContext.request.contextPath}/customer/processForm" modelAttribute="customer" method="post">
+<div style="margin: auto; width: 67%; padding-top: 20px">
+<%--    <p>The student is confirmed: ${student.firstName + ' ' + student.lastName}</p>--%>
+    <p style="font-weight: bold">The customer is confirmed:</p>
+    <p style="font-style: italic">Name: ${customer.firstName} ${customer.lastName}</p>
 
-        <div class="form-group row">
-            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
-            <div class="col-sm-10">
-                    <%-- <input type="text" class="form-control" id="firstName" placeholder="John">--%>
-                <form:input path="firstName" cssClass="form-control" autocomplete="true"/>
-            </div>
-        </div>
+    <br>
+    <br>
 
-        <div class="form-group row">
-            <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
-            <div class="col-sm-10">
-                    <%-- <input type="text" class="form-control" id="lastName" placeholder="Doe">--%>
-                <form:input path="lastName" cssClass="form-control" autocomplete="true"/>
-                <form:errors path="lastName" cssClass="invalid-feedback d-block"/>
-            </div>
-        </div>
-
-        <div class="form-group row">
-            <%-- https://stackoverflow.com/questions/41664991/bootstrap-4-how-do-i-center-align-a-button --%>
-            <div class="col-sm-10 offset-4 offset-sm-5 offset-md-5">
-                <button type="submit" class="btn btn-primary">Process Form</button>
-            </div>
-        </div>
-
-    </form:form>
+    <p>
+        All data as toString:
+        <br>
+        ${customer}
+    </p>
 
 </div>
 
