@@ -48,24 +48,39 @@
 <div class="row">
     <div class="column" style="background-color:#aaa;">
         <h2>Java Server Pages (JSP)</h2>
+
         <ul>
             <li><a href="${pageContext.request.contextPath}/">JSP - Main Menu</a></li>
-            <li><a href="${pageContext.request.contextPath}/hello/showCompleteForm">JSP - Show Complete Form</a></li>
-            <li><a href="${pageContext.request.contextPath}/hello/showForm">JSP - Show Form</a></li>
+            <li><a href="${pageContext.request.contextPath}/hello/showForm">JSP - Show Form V1</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showFormV2">JSP - Show Form V2</a></li>
             <li><a href="${pageContext.request.contextPath}/hello/showFormV3">JSP - Show Form V3</a></li>
+            <li><a href="${pageContext.request.contextPath}/hello/showCompleteForm">JSP - Show Complete Form</a></li>
+        </ul>
+
+        <ul>
             <li>------ Student Exercises ------</li>
             <li><a href="${pageContext.request.contextPath}/student/showForm">JSP - Student - Show Form</a></li>
         </ul>
+
+        <ul>
+            <li>------ Customer Exercises ------</li>
+            <li><a href="${pageContext.request.contextPath}/customer/showForm">JSP - Customer - Show Form</a></li>
+        </ul>
+
     </div>
     <div class="column" style="background-color:#bbb;">
         <h2>Thymeleaf</h2>
         <ul>
             <li><a href="${pageContext.request.contextPath}/thymeleaf">Thymeleaf - Main Menu</a></li>
-            <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showCompleteForm">Thymeleaf - Show Complete Form</a></li>
-            <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showForm">Thymeleaf - Show Form</a></li>
+            <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showForm">Thymeleaf - Show Form V1</a></li>
             <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showFormV2">Thymeleaf - Show Form V2</a></li>
             <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showFormV3">Thymeleaf - Show Form V3</a></li>
+            <li><a href="${pageContext.request.contextPath}/thymeleaf/hello/showCompleteForm">Thymeleaf - Show Complete Form</a></li>
+        </ul>
+
+        <ul>
+            <li>------ Customer Exercises ------</li>
+            <li><a href="${pageContext.request.contextPath}/thymeleaf/customer/showForm">Thymeleaf - Customer - Show Form</a></li>
         </ul>
     </div>
 </div>
