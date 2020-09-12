@@ -1,7 +1,6 @@
 package main.java.com.luizconrado.springmvc.controllers;
 
 import main.java.com.luizconrado.springmvc.model.Customer;
-import main.java.com.luizconrado.springmvc.model.Student;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,10 +18,10 @@ public class CustomerController {
     @RequestMapping(path = "showForm", method = {RequestMethod.GET})
     public String showForm(Model theModel) {
 
-        // create a new student object
+        // create a new customer object
         Customer customer = new Customer();
 
-        // add student object to the model
+        // add customer object to the model
         theModel.addAttribute("customer", customer);
 
 
@@ -33,10 +32,10 @@ public class CustomerController {
     @RequestMapping(path = "processForm", method = {RequestMethod.POST})
     public String processForm(@Valid @ModelAttribute("customer") Customer customer, BindingResult bindingResult) {
 
-        // log the student data
+        // log the customer data
         System.out.println("customer: " + customer);
 
-        if (bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "views/customer-form";
 
         } else {

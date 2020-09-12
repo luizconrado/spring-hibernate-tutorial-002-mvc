@@ -40,7 +40,9 @@
 <div style="margin: auto; width: 67%; padding-top: 20px">
 <%--    <p>The student is confirmed: ${student.firstName + ' ' + student.lastName}</p>--%>
     <p style="font-weight: bold">The customer is confirmed:</p>
-    <p style="font-style: italic">Name: ${customer.firstName} ${customer.lastName}</p>
+    <p style="font-style: italic">Full Name: ${customer.firstName} ${customer.lastName}</p>
+    <p style="font-style: italic">First Name: ${customer.firstName}</p>
+    <p style="font-style: italic">Last Name: ${customer.lastName}</p>
 
     <br>
     <br>
