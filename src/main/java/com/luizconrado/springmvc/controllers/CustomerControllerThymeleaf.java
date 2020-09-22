@@ -36,7 +36,7 @@ public class CustomerControllerThymeleaf {
         System.out.println("customer: " + customer);
 
         if (bindingResult.hasErrors()) {
-            return "views/customer-form";
+            return "templates/customer-form";
 
         } else {
             return "templates/customer-confirmation";
